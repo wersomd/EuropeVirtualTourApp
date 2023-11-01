@@ -1,5 +1,4 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -18,7 +17,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return FadeInUp(
       child: AppBar(
         elevation: 0,
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.deepPurpleAccent[400],
         centerTitle: true,
         title: const Text(
           'Europe Virtual Tour',

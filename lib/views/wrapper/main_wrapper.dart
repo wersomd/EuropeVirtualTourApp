@@ -7,7 +7,7 @@ import '../home/home.dart';
 import '../home/profile.dart';
 
 class MainWrapper extends StatefulWidget {
-  const MainWrapper({Key? key}) : super(key: key);
+  const MainWrapper({super.key});
 
   @override
   State<MainWrapper> createState() => _MainWrapperState();
@@ -59,8 +59,8 @@ class _MainWrapperState extends State<MainWrapper> {
         bottomNavigationBar: CurvedNavigationBar(
           height: 60.0,
           backgroundColor: Colors.transparent,
-          color: Colors.black,
-          buttonBackgroundColor: Colors.black,
+          color: Colors.deepPurpleAccent,
+          buttonBackgroundColor: Colors.deepPurpleAccent,
           onTap: onTap,
           items: const [
             Icon(

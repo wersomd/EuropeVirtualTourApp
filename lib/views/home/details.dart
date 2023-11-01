@@ -57,7 +57,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     : current.image,
                 child: Container(
                   width: size.width,
-                  height: size.height * 0.8,
+                  height: size.height * 0.4,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(current?.image),
@@ -74,7 +74,7 @@ class _DetailsPageState extends State<DetailsPage> {
               child: Container(
                 padding: padding,
                 width: size.width,
-                height: size.height * 0.5,
+                height: size.height * 0.6,
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(

@@ -4,7 +4,7 @@ import 'package:wersomd_app/widgets/drawer/custom_list_tile.dart';
 import 'package:wersomd_app/widgets/drawer/header.dart';
 
 class CustomDrawer extends StatefulWidget {
-  const CustomDrawer({Key? key}) : super(key: key);
+  const CustomDrawer({super.key});
 
   @override
   State<CustomDrawer> createState() => _CustomDrawerState();
@@ -20,12 +20,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
         curve: Curves.easeInOutCubic,
         duration: const Duration(milliseconds: 500),
         width: _isCollapsed ? 300 : 70,
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.only(
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.only(
             bottomRight: Radius.circular(10),
             topRight: Radius.circular(10),
           ),
-          color: Color.fromRGBO(20, 20, 20, 1),
+          color: Colors.deepPurple[400],
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -49,18 +49,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 isCollapsed: _isCollapsed,
                 icon: Icons.calendar_today,
                 title: 'Календарь',
-                onPressed: () {
-
-                },
+                onPressed: () {},
               ),
               CustomListTile(
-                isCollapsed: _isCollapsed,
-                icon: Icons.notification_add_outlined,
-                title: 'Уведомления',
-                onPressed: () {
-                  Navigator.pushNamed(context, '/notifications');
-                }
-              ),
+                  isCollapsed: _isCollapsed,
+                  icon: Icons.notification_add_outlined,
+                  title: 'Уведомления',
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/notifications');
+                  }),
               CustomListTile(
                 isCollapsed: _isCollapsed,
                 icon: Icons.favorite_border,

@@ -78,8 +78,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             right: size.width * 0.05,
                           ),
                           controller: tabController,
-                          labelColor: Colors.black,
-                          unselectedLabelColor: Colors.black38,
+                          labelColor: Colors.deepPurpleAccent[900],
+                          unselectedLabelColor: Colors.deepPurpleAccent,
                           isScrollable: true,
                           indicatorSize: TabBarIndicatorSize.label,
                           indicator: const CircleTabBarIndicator(

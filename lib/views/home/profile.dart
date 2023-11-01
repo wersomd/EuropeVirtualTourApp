@@ -35,7 +35,6 @@ class _ProfilePageState extends State<ProfilePage> {
       key: _scaffoldKey,
       drawer: const CustomDrawer(),
       appBar: CustomAppBar(
-
         scaffoldKey: _scaffoldKey,
       ),
       body: SingleChildScrollView(
@@ -50,7 +49,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(24.0),
-                  border: Border.all(color: Colors.orange, width: 2),
+                  border: Border.all(color: Colors.deepPurpleAccent, width: 2),
                 ),
               ),
             ),
@@ -61,14 +60,14 @@ class _ProfilePageState extends State<ProfilePage> {
                   children: [
                     const CircleAvatar(
                       radius: 80.0,
-                      backgroundColor: Colors.orange,
+                      backgroundColor: Colors.deepPurpleAccent,
                       child: CircleAvatar(
                         radius: 76.0,
                         backgroundImage: AssetImage('assets/images/luvr.webp'),
                         child: Align(
                           alignment: Alignment.bottomRight,
                           child: CircleAvatar(
-                            backgroundColor: Colors.orange,
+                            backgroundColor: Colors.deepPurpleAccent,
                             radius: 24.0,
                             child: Icon(
                               Icons.camera_alt,
@@ -116,7 +115,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(24.0),
                   color: Colors.transparent,
-                  border: Border.all(width: 2, color: Colors.orange),
+                  border: Border.all(width: 2, color: Colors.deepPurpleAccent),
                 ),
                 child: Center(
                   child: Padding(
@@ -130,7 +129,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 onPressed: () {},
                                 style: ElevatedButton.styleFrom(
                                   minimumSize: Size(size.width, 60),
-                                  backgroundColor: Colors.orange,
+                                  backgroundColor: Colors.deepPurpleAccent,
                                   side: const BorderSide(
                                     color: Colors.white,
                                     width: 2.0,
@@ -159,7 +158,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           style: ElevatedButton.styleFrom(
                             minimumSize: Size(size.width, 60),
-                            backgroundColor: Colors.orange,
+                            backgroundColor: Colors.deepPurpleAccent,
                             side: const BorderSide(
                               width: 2,
                               color: Colors.white,
