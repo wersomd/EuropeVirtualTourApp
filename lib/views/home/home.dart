@@ -228,8 +228,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 class TabViewChild extends StatelessWidget {
   const TabViewChild({
     required this.list,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final List<TabBarModel> list;
 

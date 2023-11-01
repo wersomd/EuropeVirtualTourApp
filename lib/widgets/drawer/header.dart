@@ -4,9 +4,9 @@ class CustomDrawerHeader extends StatelessWidget {
   final bool isCollapsed;
 
   const CustomDrawerHeader({
-    Key? key,
+    super.key,
     required this.isCollapsed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,11 @@ class CustomDrawerHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(Icons.map_outlined, size: 30, color: Colors.white,),
+          const Icon(
+            Icons.map_outlined,
+            size: 30,
+            color: Colors.white,
+          ),
           if (isCollapsed) const SizedBox(width: 10),
           if (isCollapsed)
             const Expanded(

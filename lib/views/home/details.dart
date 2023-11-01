@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:wersomd_app/views/tours/tour_page.dart';
 
 import '../../models/people_also_like.model.dart';
 import '../../models/tab_bar.model.dart';
@@ -57,7 +58,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     : current.image,
                 child: Container(
                   width: size.width,
-                  height: size.height * 0.4,
+                  height: size.height * 0.5,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(current?.image),
@@ -215,7 +216,16 @@ class _DetailsPageState extends State<DetailsPage> {
                                 minWidth: size.width * 0.6,
                                 height: size.height * 0.06,
                                 color: Colors.deepPurpleAccent,
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => TourPage(
+                                        url: current.url,
+                                      ),
+                                    ),
+                                  );
+                                },
                                 child: const AppText(
                                   text: "Путешествовать",
                                   size: 18,

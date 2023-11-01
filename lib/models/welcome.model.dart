@@ -15,11 +15,10 @@ List<WelcomePageContents> welcomeContentsList = [
   ),
   WelcomePageContents(
     title: "Приветствуем вас в приложении виртуальных туров по Европе!",
-    image: "assets/images/welcome/welcome-2.jpg",
+    image: "assets/images/welcome/welcome-2.png",
   ),
   WelcomePageContents(
-    title:
-        "Друзья, добро пожаловать в мир виртуальных туров, который откроет вам двери в великолепную Европу.",
+    title: "Виртуальный тур который откроет вам двери в великолепную Европу.",
     image: "assets/images/welcome/welcome-3.jpg",
   ),
 ];

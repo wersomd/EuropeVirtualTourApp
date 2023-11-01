@@ -4,9 +4,9 @@ import 'reusable_text.dart';
 
 class MiddleAppText extends StatelessWidget {
   const MiddleAppText({
-    Key? key,
+    super.key,
     required this.text,
-  }) : super(key: key);
+  });
 
   final String text;
 

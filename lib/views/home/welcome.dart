@@ -55,7 +55,7 @@ class _WelcomePageState extends State<WelcomePage> {
         child: Column(
           children: [
             Expanded(
-              flex: 3,
+              flex: 4,
               child: PageView.builder(
                 physics: const BouncingScrollPhysics(),
                 controller: _controller,
@@ -64,19 +64,24 @@ class _WelcomePageState extends State<WelcomePage> {
                 itemBuilder: (context, i) {
                   return Padding(
                     padding: const EdgeInsets.only(
-                        top: 40.0, bottom: 40.0, right: 10.0, left: 10.0),
+                      top: 5.0,
+                      bottom: 30.0,
+                      left: 5.0,
+                      right: 5.0,
+                    ),
                     child: Column(
                       children: [
                         Container(
-                          height: SizeConfig.blockV! * 35,
+                          height: SizeConfig.blockV! * 50,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(75.0),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  welcomeContentsList[i].image,
-                                ),
-                                fit: BoxFit.fitWidth,
-                              )),
+                            borderRadius: BorderRadius.circular(30.0),
+                            image: DecorationImage(
+                              image: AssetImage(
+                                welcomeContentsList[i].image,
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
                         SizedBox(
                           height: (height >= 840) ? 60 : 30,

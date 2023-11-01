@@ -86,7 +86,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.w500,
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                     ),
                     const SizedBox(
@@ -97,7 +97,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.w500,
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                     ),
                   ],
@@ -158,10 +158,11 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           style: ElevatedButton.styleFrom(
                             minimumSize: Size(size.width, 60),
+                            elevation: 0,
                             backgroundColor: Colors.deepPurpleAccent,
                             side: const BorderSide(
                               width: 2,
-                              color: Colors.white,
+                              color: Colors.deepPurpleAccent,
                             ),
                           ),
                         ),
