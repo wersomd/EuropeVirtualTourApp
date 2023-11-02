@@ -17,12 +17,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return FadeInUp(
       child: AppBar(
         elevation: 0,
-        backgroundColor: Colors.deepPurpleAccent[400],
+        backgroundColor: Colors.white,
         centerTitle: true,
         title: const Text(
           'Europe Virtual Tour',
           style:
-              TextStyle(fontSize: 17, color: Colors.white, letterSpacing: 0.53),
+              TextStyle(fontSize: 18, color: Colors.black, letterSpacing: 0.53),
         ),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
@@ -34,7 +34,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
           icon: const Icon(
             Icons.subject,
-            color: Colors.white,
+            color: Colors.black,
             size: 32,
           ),
         ),
@@ -48,7 +48,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               child: Icon(
                 Icons.notifications,
                 size: 32,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
           ),

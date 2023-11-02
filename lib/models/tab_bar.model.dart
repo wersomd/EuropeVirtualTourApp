@@ -34,7 +34,7 @@ List<TabBarModel> places = [
     year: 1345,
     description:
         "Амфитеатр, памятник архитектуры Древнего Рима, наиболее известное и одно из самых грандиозных сооружений Древнего мира, сохранившихся до нашего времени.",
-    url: '',
+    url: 'https://www.360cities.net/image/rome-colosseum-spherical-panorama',
   ),
   TabBarModel(
     title: "Амстердам",
@@ -74,4 +74,13 @@ List<TabBarModel> inspiration = [
         "Версаль является одной из самых известных королевских резиденций во Франции. Построенная в 17м веке как символ военного величия и как демонстрация господства Франции в Европе, она представляет собой комплекс зданий, садов и террас, и является одним из самых привлекательных мест для туристов.",
     url: '',
   )
+];
+
+List<TabBarModel> mostVisited = [
+  TabBarModel(
+      title: '', location: '', image: '', year: 2019, description: '', url: ''),
+  TabBarModel(
+      title: '', location: '', image: '', year: 2019, description: '', url: ''),
+  TabBarModel(
+      title: '', location: '', image: '', year: 2019, description: '', url: ''),
 ];

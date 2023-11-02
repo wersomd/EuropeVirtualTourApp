@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     tabController = TabController(
-      length: 2,
+      length: 3,
       vsync: this,
     );
     super.initState();
@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   FadeInUp(
                     delay: const Duration(milliseconds: 600),
                     child: Container(
-                      margin: const EdgeInsets.only(top: 30.0),
+                      margin: const EdgeInsets.only(top: 20.0),
                       width: size.width,
                       child: Align(
                         alignment: Alignment.centerLeft,
@@ -78,17 +78,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             right: size.width * 0.05,
                           ),
                           controller: tabController,
-                          labelColor: Colors.deepPurpleAccent[900],
-                          unselectedLabelColor: Colors.deepPurpleAccent,
+                          labelColor: Colors.deepPurpleAccent,
+                          unselectedLabelColor: Colors.black,
                           isScrollable: true,
                           indicatorSize: TabBarIndicatorSize.label,
                           indicator: const CircleTabBarIndicator(
-                            color: Colors.black,
-                            radius: 4,
+                            color: Colors.deepPurpleAccent,
+                            radius: 5,
                           ),
                           tabs: const [
                             Tab(text: "Популярные"),
                             Tab(text: "Вдохновение"),
+                            Tab(text: "Самый посещаемые")
                           ],
                         ),
                       ),
@@ -101,14 +102,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       width: size.width,
                       height: size.height * 0.4,
                       child: TabBarView(
-                          physics: const NeverScrollableScrollPhysics(),
-                          controller: tabController,
-                          children: [
-                            TabViewChild(
-                              list: places,
-                            ),
-                            TabViewChild(list: inspiration),
-                          ]),
+                        physics: const NeverScrollableScrollPhysics(),
+                        controller: tabController,
+                        children: [
+                          TabViewChild(list: places),
+                          TabViewChild(list: inspiration),
+                          TabViewChild(list: mostVisited),
+                        ],
+                      ),
                     ),
                   ),
                   FadeInUp(
@@ -260,7 +261,7 @@ class TabViewChild extends StatelessWidget {
                 tag: current.image,
                 child: Container(
                   margin: const EdgeInsets.all(10.0),
-                  width: size.width * 0.6,
+                  width: size.width * 0.75,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     image: DecorationImage(
