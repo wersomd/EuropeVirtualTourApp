@@ -16,7 +16,7 @@ class TabBarModel {
   });
 }
 
-List<TabBarModel> places = [
+List<TabBarModel> populars = [
   TabBarModel(
     title: "Эйфелевая башня",
     location: "Париж",
@@ -57,30 +57,46 @@ List<TabBarModel> inspiration = [
     url: '',
   ),
   TabBarModel(
-    title: "Монмартр",
-    location: "Париж",
+    title: "",
+    location: "",
     image: "assets/images/monmartr.webp",
     year: 1919,
-    description:
-        "Монмартр представляет собой холм 130 метров вышиной, который находится на севере Парижа. Этот район известен базиликой Сакре-Кер. Она была построена в 1919 году и посвящены солдатам, павшим в франко-прусской войне 1870 года.",
+    description: "",
     url: '',
   ),
   TabBarModel(
-    title: "Версаль",
-    location: "Париж",
+    title: "",
+    location: "",
     image: "assets/images/versal.webp",
     year: 1600,
-    description:
-        "Версаль является одной из самых известных королевских резиденций во Франции. Построенная в 17м веке как символ военного величия и как демонстрация господства Франции в Европе, она представляет собой комплекс зданий, садов и террас, и является одним из самых привлекательных мест для туристов.",
+    description: "",
     url: '',
   )
 ];
 
 List<TabBarModel> mostVisited = [
   TabBarModel(
-      title: '', location: '', image: '', year: 2019, description: '', url: ''),
+    title: '',
+    location: '',
+    image: '',
+    year: 2019,
+    description: '',
+    url: '',
+  ),
   TabBarModel(
-      title: '', location: '', image: '', year: 2019, description: '', url: ''),
+    title: '',
+    location: '',
+    image: '',
+    year: 2019,
+    description: '',
+    url: '',
+  ),
   TabBarModel(
-      title: '', location: '', image: '', year: 2019, description: '', url: ''),
+    title: '',
+    location: '',
+    image: '',
+    year: 2019,
+    description: '',
+    url: '',
+  ),
 ];
