@@ -66,17 +66,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   FadeInUp(
                     delay: const Duration(milliseconds: 600),
                     child: Container(
-                      margin: const EdgeInsets.only(top: 20.0),
+                      margin: const EdgeInsets.only(top: 15.0),
                       width: size.width,
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: TabBar(
+                          padding: const EdgeInsets.only(
+                            bottom: 10,
+                          ),
                           overlayColor:
                               MaterialStateProperty.all(Colors.transparent),
-                          labelPadding: EdgeInsets.only(
-                            left: size.width * 0.05,
-                            right: size.width * 0.05,
-                          ),
                           controller: tabController,
                           labelColor: Colors.deepPurpleAccent,
                           unselectedLabelColor: Colors.black,
@@ -84,8 +83,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           indicatorSize: TabBarIndicatorSize.label,
                           indicator: const CircleTabBarIndicator(
                             color: Colors.deepPurpleAccent,
-                            radius: 5,
+                            radius: 6,
                           ),
+                          dividerHeight: 0,
+                          tabAlignment: TabAlignment.center,
                           tabs: const [
                             Tab(text: "Популярные"),
                             Tab(text: "Вдохновение"),

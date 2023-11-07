@@ -20,12 +20,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
         curve: Curves.easeInOutCubic,
         duration: const Duration(milliseconds: 500),
         width: _isCollapsed ? 300 : 70,
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.only(
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
             bottomRight: Radius.circular(10),
             topRight: Radius.circular(10),
           ),
-          color: Colors.deepPurple[400],
+          color: Colors.indigoAccent,
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -71,7 +71,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               CustomListTile(
                 isCollapsed: _isCollapsed,
                 icon: Icons.settings,
-                title: 'Settings',
+                title: 'Настройки',
               ),
               const SizedBox(height: 10),
               BottomUserInfo(isCollapsed: _isCollapsed),

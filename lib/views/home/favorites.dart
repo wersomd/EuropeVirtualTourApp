@@ -17,8 +17,10 @@ class _FavoritesPageState extends State<FavoritesPage> {
     return Scaffold(
       key: _scaffoldKey,
       drawer: const CustomDrawer(),
-      appBar: CustomAppBar(scaffoldKey: _scaffoldKey,),
-      body: const SingleChildScrollView(),
+      appBar: CustomAppBar(
+        scaffoldKey: _scaffoldKey,
+      ),
+      body: Container(),
     );
   }
 }

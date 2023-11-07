@@ -84,7 +84,7 @@ class _WelcomePageState extends State<WelcomePage> {
                           ),
                         ),
                         SizedBox(
-                          height: (height >= 840) ? 60 : 30,
+                          height: (height >= 840) ? 40 : 20,
                         ),
                         Text(
                           welcomeContentsList[i].title,

@@ -1,5 +1,5 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:wersomd_app/views/home/favorites.dart';
 import 'package:wersomd_app/views/home/notifications.dart';
 
@@ -14,79 +14,51 @@ class MainWrapper extends StatefulWidget {
 }
 
 class _MainWrapperState extends State<MainWrapper> {
-  final PageController pageController = PageController();
-  int currentIndex = 0;
+  var _currentIndex = 0;
   static const List<Widget> pages = [
     HomePage(),
-    NotificationsPage(),
     FavoritesPage(),
+    NotificationsPage(),
     ProfilePage(),
   ];
-
-  @override
-  void dispose() {
-    pageController.dispose();
-    super.dispose();
-  }
-
-  void onTap(int index) {
-    setState(() {
-      currentIndex = index;
-    });
-    pageController.animateToPage(
-      index,
-      duration: const Duration(milliseconds: 400),
-      curve: Curves.easeInOut,
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: PageView(
-          physics: const NeverScrollableScrollPhysics(),
-          controller: pageController,
-          onPageChanged: (index) {
-            setState(
-              () {
-                currentIndex = index;
-              },
-            );
-          },
-          children: pages,
-        ),
-        bottomNavigationBar: CurvedNavigationBar(
-          height: 60.0,
-          backgroundColor: Colors.transparent,
-          color: Colors.deepPurpleAccent,
-          buttonBackgroundColor: Colors.deepPurpleAccent,
-          onTap: onTap,
-          items: const [
-            Icon(
-              Icons.home_outlined,
-              size: 30,
-              color: Colors.white,
+        body: pages[_currentIndex],
+        bottomNavigationBar: SalomonBottomBar(
+          currentIndex: _currentIndex,
+          onTap: (i) => setState(() => _currentIndex = i),
+          items: [
+            /// Home
+            SalomonBottomBarItem(
+              icon: const Icon(Icons.home_outlined),
+              title: const Text("Главная"),
+              selectedColor: Colors.indigo,
             ),
-            Icon(
-              Icons.favorite_outline,
-              size: 30,
-              color: Colors.white,
+
+            /// Likes
+            SalomonBottomBarItem(
+              icon: const Icon(Icons.favorite_border),
+              title: const Text("Избранные"),
+              selectedColor: Colors.indigo,
             ),
-            Icon(
-              Icons.notifications_active_outlined,
-              size: 30,
-              color: Colors.white,
+
+            /// Search
+            SalomonBottomBarItem(
+              icon: const Icon(Icons.notifications_outlined),
+              title: const Text("Уведомление"),
+              selectedColor: Colors.indigo,
             ),
-            Icon(
-              Icons.person_outline,
-              size: 30,
-              color: Colors.white,
+
+            /// Profile
+            SalomonBottomBarItem(
+              icon: const Icon(Icons.person_outline),
+              title: const Text("Профиль"),
+              selectedColor: Colors.indigo,
             ),
           ],
-          animationCurve: Curves.easeInOut,
-          animationDuration: const Duration(milliseconds: 400),
-          letIndexChange: (_) => true,
         ),
       ),
     );
