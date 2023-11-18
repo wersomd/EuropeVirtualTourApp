@@ -14,16 +14,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return FadeInUp(
       child: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           'Europe Virtual Tour',
           style: TextStyle(
             fontSize: 20,
-            color: Colors.black,
+            color: theme.textTheme.bodyLarge!.color,
             letterSpacing: 0.53,
             fontWeight: FontWeight.bold,
           ),
@@ -36,9 +38,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         leading: IconButton(
           onPressed: () => scaffoldKey.currentState!.openDrawer(),
           tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-          icon: const Icon(
+          icon: Icon(
             Icons.subject,
-            color: Colors.black,
+            color: theme.appBarTheme.iconTheme?.color,
             size: 34,
           ),
         ),
@@ -47,12 +49,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             onTap: () {
               // Обработка нажатия на иконку уведомлений
             },
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Icon(
-                Icons.notifications_outlined,
+                Icons.dark_mode,
                 size: 34,
-                color: Colors.black,
+                color: theme.appBarTheme.iconTheme!.color,
               ),
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wersomd_app/views/wrapper/main_wrapper.dart';
 import 'package:wersomd_app/widgets/drawer/bottom_user_info.dart';
 import 'package:wersomd_app/widgets/drawer/custom_list_tile.dart';
 import 'package:wersomd_app/widgets/drawer/header.dart';
@@ -25,7 +26,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             bottomRight: Radius.circular(10),
             topRight: Radius.circular(10),
           ),
-          color: Colors.indigoAccent,
+          color: Colors.indigo,
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -42,28 +43,51 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 icon: Icons.home_outlined,
                 title: 'Главная',
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MainWrapper(selectedIndex: 0),
+                    ),
+                  );
                 },
               ),
               CustomListTile(
                 isCollapsed: _isCollapsed,
                 icon: Icons.calendar_today,
-                title: 'Календарь',
-                onPressed: () {},
-              ),
-              CustomListTile(
-                  isCollapsed: _isCollapsed,
-                  icon: Icons.notification_add_outlined,
-                  title: 'Уведомления',
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/notifications');
-                  }),
-              CustomListTile(
-                isCollapsed: _isCollapsed,
-                icon: Icons.favorite_border,
                 title: 'Избранные',
                 onPressed: () {
-                  Navigator.pushNamed(context, '/favorite');
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MainWrapper(selectedIndex: 1),
+                    ),
+                  );
+                },
+              ),
+              CustomListTile(
+                isCollapsed: _isCollapsed,
+                icon: Icons.notification_add_outlined,
+                title: 'Уведомления',
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MainWrapper(selectedIndex: 2),
+                    ),
+                  );
+                },
+              ),
+              CustomListTile(
+                isCollapsed: _isCollapsed,
+                icon: Icons.person_outline,
+                title: 'Профиль',
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MainWrapper(selectedIndex: 3),
+                    ),
+                  );
                 },
               ),
               const Divider(color: Colors.grey),

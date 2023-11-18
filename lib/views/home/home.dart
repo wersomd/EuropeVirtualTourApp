@@ -45,6 +45,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+
+    final theme = Theme.of(context);
+
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
@@ -77,12 +80,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           overlayColor:
                               MaterialStateProperty.all(Colors.transparent),
                           controller: tabController,
-                          labelColor: Colors.deepPurpleAccent,
-                          unselectedLabelColor: Colors.black,
+                          labelColor: theme.tabBarTheme.labelColor,
+                          unselectedLabelColor:
+                              theme.tabBarTheme.unselectedLabelColor,
                           isScrollable: true,
                           indicatorSize: TabBarIndicatorSize.label,
-                          indicator: const CircleTabBarIndicator(
-                            color: Colors.deepPurpleAccent,
+                          indicator: CircleTabBarIndicator(
+                            color: theme.indicatorColor,
                             radius: 6,
                           ),
                           dividerHeight: 0,
@@ -145,7 +149,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               width: size.width,
                               height: size.height * 0.15,
                               decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: theme.cardColor,
                                 borderRadius: BorderRadius.circular(15),
                                 boxShadow: const [
                                   BoxShadow(
@@ -194,7 +198,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         AppText(
                                           text: current.title,
                                           size: 17,
-                                          color: Colors.black,
+                                          color:
+                                              theme.textTheme.titleLarge!.color,
                                           fontWeight: FontWeight.w400,
                                         ),
                                         SizedBox(
@@ -203,7 +208,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         AppText(
                                           text: current.location,
                                           size: 14,
-                                          color: Colors.black.withOpacity(0.5),
+                                          color:
+                                              theme.textTheme.labelSmall!.color,
                                           fontWeight: FontWeight.w300,
                                         ),
                                       ],

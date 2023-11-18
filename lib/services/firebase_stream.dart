@@ -13,9 +13,14 @@ class FirebaseStream extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return const Scaffold(
-              body: Center(child: Text('Что-то пошло не так!'),),);
+            body: Center(
+              child: Text('Что-то пошло не так!'),
+            ),
+          );
         } else if (snapshot.hasData) {
-          return const MainWrapper();
+          return MainWrapper(
+            selectedIndex: 0,
+          );
         } else {
           return const WelcomePage();
         }

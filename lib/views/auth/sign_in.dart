@@ -64,20 +64,21 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         elevation: 0,
-        backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () {
             Navigator.pushNamed(context, '/home');
           },
-          icon: const Icon(
+          icon: Icon(
             Icons.arrow_back_ios,
             size: 20,
-            color: Colors.black,
+            color: theme.iconTheme.color,
           ),
         ),
       ),
@@ -93,11 +94,12 @@ class _SignInPageState extends State<SignInPage> {
                   Column(
                     children: <Widget>[
                       FadeInRight(
-                        child: const Text(
+                        child: Text(
                           "Войти",
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
+                            color: theme.textTheme.titleMedium!.color,
                           ),
                         ),
                       ),

@@ -1,65 +1,93 @@
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-import 'package:wersomd_app/views/home/favorites.dart';
-import 'package:wersomd_app/views/home/notifications.dart';
+import 'package:wersomd_app/widgets/bottom_tabs.dart';
+import 'package:wersomd_app/widgets/drawer/custom_drawer.dart';
 
-import '../home/home.dart';
-import '../home/profile.dart';
-
+// ignore: must_be_immutable
 class MainWrapper extends StatefulWidget {
-  const MainWrapper({super.key});
+  int selectedIndex = 0;
+
+  MainWrapper({super.key, required this.selectedIndex});
 
   @override
   State<MainWrapper> createState() => _MainWrapperState();
 }
 
 class _MainWrapperState extends State<MainWrapper> {
-  var _currentIndex = 0;
-  static const List<Widget> pages = [
-    HomePage(),
-    FavoritesPage(),
-    NotificationsPage(),
-    ProfilePage(),
-  ];
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      widget.selectedIndex = index;
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  void initState() {
+    _onItemTapped(widget.selectedIndex);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return SafeArea(
       child: Scaffold(
-        body: pages[_currentIndex],
+        body: IndexedStack(
+          index: widget.selectedIndex,
+          children: [
+            for (final tabItem in TabNavigationItem.items) tabItem.page,
+          ],
+        ),
         bottomNavigationBar: SalomonBottomBar(
-          currentIndex: _currentIndex,
-          onTap: (i) => setState(() => _currentIndex = i),
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
           items: [
-            /// Home
             SalomonBottomBarItem(
               icon: const Icon(Icons.home_outlined),
-              title: const Text("Главная"),
+              title: Text(
+                "Главная",
+                style: TextStyle(
+                  color: theme.textTheme.labelSmall!.color,
+                ),
+              ),
               selectedColor: Colors.indigo,
             ),
-
-            /// Likes
             SalomonBottomBarItem(
               icon: const Icon(Icons.favorite_border),
-              title: const Text("Избранные"),
+              title: Text(
+                "Избранные",
+                style: TextStyle(
+                  color: theme.textTheme.labelSmall!.color,
+                ),
+              ),
               selectedColor: Colors.indigo,
             ),
-
-            /// Search
             SalomonBottomBarItem(
               icon: const Icon(Icons.notifications_outlined),
-              title: const Text("Уведомление"),
+              title: Text(
+                "Уведомление",
+                style: TextStyle(
+                  color: theme.textTheme.labelSmall!.color,
+                ),
+              ),
               selectedColor: Colors.indigo,
             ),
-
-            /// Profile
             SalomonBottomBarItem(
               icon: const Icon(Icons.person_outline),
-              title: const Text("Профиль"),
+              title: Text(
+                "Профиль",
+                style: TextStyle(
+                  color: theme.textTheme.labelSmall!.color,
+                ),
+              ),
               selectedColor: Colors.indigo,
             ),
           ],
         ),
+        drawer: const CustomDrawer(),
       ),
     );
   }

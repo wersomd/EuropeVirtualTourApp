@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:wersomd_app/views/tours/tour_page.dart';
 
 import '../../models/people_also_like.model.dart';
@@ -39,6 +40,8 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    final theme = Theme.of(context);
+
     onFirstLoaded();
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -76,9 +79,9 @@ class _DetailsPageState extends State<DetailsPage> {
                 padding: padding,
                 width: size.width,
                 height: size.height * 0.6,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                  color: theme.cardColor,
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30),
                   ),
@@ -100,14 +103,14 @@ class _DetailsPageState extends State<DetailsPage> {
                                   AppText(
                                     text: current.title,
                                     size: 28,
-                                    color: Colors.black,
+                                    color: theme.textTheme.titleMedium!.color,
                                     fontWeight: FontWeight.w500,
                                   ),
                                   Row(
                                     children: [
-                                      const Icon(
+                                      Icon(
                                         Icons.location_on,
-                                        color: Colors.black54,
+                                        color: theme.iconTheme.color,
                                         size: 15,
                                       ),
                                       SizedBox(
@@ -116,7 +119,8 @@ class _DetailsPageState extends State<DetailsPage> {
                                       AppText(
                                         text: current.location,
                                         size: 12,
-                                        color: Colors.black54,
+                                        color:
+                                            theme.textTheme.titleSmall!.color,
                                         fontWeight: FontWeight.w400,
                                       ),
                                     ],
@@ -125,8 +129,8 @@ class _DetailsPageState extends State<DetailsPage> {
                               ),
                               AppText(
                                 text: "${current.year}",
-                                size: 25,
-                                color: Colors.black54,
+                                size: 20,
+                                color: theme.textTheme.titleMedium!.color,
                                 fontWeight: FontWeight.w500,
                               ),
                             ],
@@ -151,10 +155,10 @@ class _DetailsPageState extends State<DetailsPage> {
                             SizedBox(
                               width: size.width * 0.01,
                             ),
-                            const AppText(
+                            AppText(
                               text: "(5.0)",
                               size: 15,
-                              color: Colors.black54,
+                              color: theme.textTheme.titleMedium!.color,
                               fontWeight: FontWeight.w400,
                             ),
                           ],
@@ -163,10 +167,10 @@ class _DetailsPageState extends State<DetailsPage> {
                       SizedBox(height: size.height * 0.05),
                       FadeInUp(
                         delay: const Duration(milliseconds: 800),
-                        child: const AppText(
+                        child: AppText(
                           text: "Описание",
                           size: 22,
-                          color: Colors.black,
+                          color: theme.textTheme.titleMedium!.color,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -176,7 +180,7 @@ class _DetailsPageState extends State<DetailsPage> {
                           child: AppText(
                             text: current.description,
                             size: 14,
-                            color: Colors.black54,
+                            color: theme.textTheme.titleMedium!.color,
                             fontWeight: FontWeight.w500,
                           )),
                       FadeInUp(
@@ -234,6 +238,33 @@ class _DetailsPageState extends State<DetailsPage> {
                                 ),
                               ),
                             ],
+                          ),
+                        ),
+                      ),
+                      FadeInUp(
+                        delay: const Duration(milliseconds: 1100),
+                        child: Padding(
+                          padding: EdgeInsets.only(top: size.height * 0.04),
+                          child: Align(
+                            alignment: Alignment.bottomRight,
+                            child: SizedBox(
+                              width: 65,
+                              height: 65,
+                              child: FloatingActionButton(
+                                backgroundColor:
+                                    const Color.fromARGB(255, 167, 135, 255),
+                                onPressed: () => {
+                                  launchUrl(
+                                    Uri.parse(current.ticketUrl),
+                                  ),
+                                },
+                                child: const Icon(
+                                  Icons.add_shopping_cart_outlined,
+                                  size: 35,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ),

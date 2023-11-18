@@ -13,7 +13,7 @@ class AppText extends StatelessWidget {
 
   final String text;
   final double size;
-  final Color color;
+  final Color? color;
   final FontWeight fontWeight;
   final TextAlign? textAlign;
 

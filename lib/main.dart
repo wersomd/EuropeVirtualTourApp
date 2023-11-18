@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:wersomd_app/firebase_options.dart';
+import 'package:wersomd_app/provider/theme_provider.dart';
 import 'package:wersomd_app/views/auth/sign_in.dart';
 import 'package:wersomd_app/views/auth/sign_up.dart';
 import 'package:wersomd_app/views/home/favorites.dart';
@@ -22,25 +24,30 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Тур по Европе",
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.indigo,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      routes: {
-        '/': (context) => const FirebaseStream(),
-        '/home': (context) => const MainWrapper(),
-        '/profile': (context) => const ProfilePage(),
-        '/login': (context) => const SignInPage(),
-        '/signup': (context) => const SignUpPage(),
-        '/welcome': (context) => const WelcomePage(),
-        '/favorite': (context) => const FavoritesPage(),
-        '/notifications': (context) => const NotificationsPage(),
-      },
-      initialRoute: '/',
-    );
-  }
+  Widget build(BuildContext context) => ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      builder: (context, _) {
+        final themeProvider = Provider.of<ThemeProvider>(context);
+
+        return MaterialApp(
+          title: "Тур по Европе",
+          debugShowCheckedModeBanner: false,
+          themeMode: themeProvider.themeMode,
+          theme: MyThemes.lightTheme,
+          darkTheme: MyThemes.darkTheme,
+          routes: {
+            '/': (context) => const FirebaseStream(),
+            '/home': (context) => MainWrapper(
+                  selectedIndex: 0,
+                ),
+            '/profile': (context) => const ProfilePage(),
+            '/login': (context) => const SignInPage(),
+            '/signup': (context) => const SignUpPage(),
+            '/welcome': (context) => const WelcomePage(),
+            '/favorite': (context) => const FavoritesPage(),
+            '/notifications': (context) => const NotificationsPage(),
+          },
+          initialRoute: '/',
+        );
+      });
 }

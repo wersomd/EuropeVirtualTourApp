@@ -34,6 +34,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final theme = Theme.of(context);
 
     return Scaffold(
       key: _scaffoldKey,
@@ -66,10 +67,10 @@ class _ProfilePageState extends State<ProfilePage> {
                           _user != null
                               ? '${_user!.displayName}'
                               : 'Вы не вошли',
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w600,
-                            color: Colors.black,
+                            color: theme.textTheme.bodyLarge!.color,
                           ),
                         ),
                         const SizedBox(
@@ -77,8 +78,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                         Text(
                           _user != null ? '${_user!.email}' : '',
-                          style: const TextStyle(
-                            color: Colors.black,
+                          style: TextStyle(
+                            color: theme.textTheme.labelMedium!.color,
                             fontSize: 20,
                             fontWeight: FontWeight.w500,
                           ),
@@ -115,7 +116,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       shape: const RoundedRectangleBorder(
                         side: BorderSide(
                           width: 2,
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                         borderRadius: BorderRadius.all(
                           Radius.circular(10.0),
@@ -124,10 +125,10 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     child: Text(
                       _user != null ? 'Выйти' : 'Войти',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Colors.indigo,
+                        color: theme.textTheme.labelLarge!.color,
                         letterSpacing: 2.8,
                       ),
                     ),
