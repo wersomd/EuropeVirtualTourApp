@@ -22,25 +22,27 @@ class ThemeProvider extends ChangeNotifier {
 
 class MyThemes {
   static final darkTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.grey.shade900,
-    primaryColor: Colors.black,
-    colorScheme: const ColorScheme.dark(),
-    iconTheme: const IconThemeData(color: Colors.white),
-    textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: Colors.white),
-      bodyMedium: TextStyle(color: Colors.white),
-    ),
-    tabBarTheme: const TabBarTheme(
-      labelColor: Colors.white,
-      indicatorColor: Colors.white,
-      unselectedLabelColor: Colors.white,
-    ),
-    appBarTheme: const AppBarTheme(
-      iconTheme: IconThemeData(
-        color: Colors.white,
+      scaffoldBackgroundColor: Colors.grey.shade900,
+      primaryColor: Colors.black,
+      colorScheme: const ColorScheme.dark(),
+      iconTheme: const IconThemeData(color: Colors.white),
+      textTheme: const TextTheme(
+        bodyLarge: TextStyle(color: Colors.white),
+        bodyMedium: TextStyle(color: Colors.white),
       ),
-    ),
-  );
+      tabBarTheme: const TabBarTheme(
+        labelColor: Colors.white,
+        indicatorColor: Colors.white,
+        unselectedLabelColor: Colors.white,
+      ),
+      appBarTheme: const AppBarTheme(
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+      ),
+      drawerTheme: const DrawerThemeData(
+        backgroundColor: Colors.black,
+      ));
 
   static final lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.white,
@@ -57,5 +59,8 @@ class MyThemes {
       ),
     ),
     indicatorColor: Colors.deepPurpleAccent,
+    drawerTheme: const DrawerThemeData(
+      backgroundColor: Colors.indigo,
+    ),
   );
 }

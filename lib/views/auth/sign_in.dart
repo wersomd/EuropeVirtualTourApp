@@ -92,7 +92,7 @@ class _SignInPageState extends State<SignInPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Column(
-                    children: <Widget>[
+                    children: [
                       FadeInRight(
                         child: Text(
                           "Войти",

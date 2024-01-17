@@ -3,6 +3,7 @@ import 'package:wersomd_app/views/wrapper/main_wrapper.dart';
 import 'package:wersomd_app/widgets/drawer/bottom_user_info.dart';
 import 'package:wersomd_app/widgets/drawer/custom_list_tile.dart';
 import 'package:wersomd_app/widgets/drawer/header.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({super.key});
@@ -16,17 +17,19 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return SafeArea(
       child: AnimatedContainer(
         curve: Curves.easeInOutCubic,
         duration: const Duration(milliseconds: 500),
         width: _isCollapsed ? 300 : 70,
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.only(
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.only(
             bottomRight: Radius.circular(10),
             topRight: Radius.circular(10),
           ),
-          color: Colors.indigo,
+          color: theme.drawerTheme.backgroundColor,
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -96,6 +99,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 isCollapsed: _isCollapsed,
                 icon: Icons.settings,
                 title: 'Настройки',
+                onPressed: () async {
+                  await openAppSettings();
+                },
               ),
               const SizedBox(height: 10),
               BottomUserInfo(isCollapsed: _isCollapsed),

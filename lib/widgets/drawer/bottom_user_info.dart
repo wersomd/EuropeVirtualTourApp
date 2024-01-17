@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:wersomd_app/views/auth/sign_in.dart';
 
 class BottomUserInfo extends StatelessWidget {
   final bool isCollapsed;
@@ -127,12 +126,7 @@ class BottomUserInfo extends StatelessWidget {
                     onPressed: () {
                       _user != null
                           ? logout()
-                          : Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SignInPage(),
-                              ),
-                            );
+                          : Navigator.pushNamed(context, '/login');
                     },
                     icon: const Icon(
                       Icons.logout,

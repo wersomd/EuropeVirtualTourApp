@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:wersomd_app/widgets/change_theme_button.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
@@ -45,9 +46,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
         actions: [
-          InkWell(
+          GestureDetector(
             onTap: () {
-              // Обработка нажатия на иконку уведомлений
+              const ChangeThemeButtonWidget();
             },
             child: Padding(
               padding: const EdgeInsets.all(8.0),
