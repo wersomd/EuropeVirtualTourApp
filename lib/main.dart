@@ -25,29 +25,30 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
-      builder: (context, _) {
-        final themeProvider = Provider.of<ThemeProvider>(context);
+        create: (context) => ThemeProvider(),
+        builder: (context, _) {
+          final themeProvider = Provider.of<ThemeProvider>(context);
 
-        return MaterialApp(
-          title: "Тур по Европе",
-          debugShowCheckedModeBanner: false,
-          themeMode: themeProvider.themeMode,
-          theme: MyThemes.lightTheme,
-          darkTheme: MyThemes.darkTheme,
-          routes: {
-            '/': (context) => const FirebaseStream(),
-            '/home': (context) => MainWrapper(
-                  selectedIndex: 0,
-                ),
-            '/profile': (context) => const ProfilePage(),
-            '/login': (context) => const SignInPage(),
-            '/signup': (context) => const SignUpPage(),
-            '/welcome': (context) => const WelcomePage(),
-            '/favorite': (context) => const FavoritesPage(),
-            '/notifications': (context) => const NotificationsPage(),
-          },
-          initialRoute: '/',
-        );
-      });
+          return MaterialApp(
+            title: "Тур по Европе",
+            debugShowCheckedModeBanner: false,
+            themeMode: themeProvider.themeMode,
+            theme: MyThemes.lightTheme,
+            darkTheme: MyThemes.darkTheme,
+            routes: {
+              '/': (context) => const FirebaseStream(),
+              '/home': (context) => MainWrapper(
+                    selectedIndex: 0,
+                  ),
+              '/profile': (context) => const ProfilePage(),
+              '/login': (context) => const SignInPage(),
+              '/signup': (context) => const SignUpPage(),
+              '/welcome': (context) => const WelcomePage(),
+              '/favorite': (context) => const FavoritesPage(),
+              '/notifications': (context) => const NotificationsPage(),
+            },
+            initialRoute: '/',
+          );
+        },
+      );
 }

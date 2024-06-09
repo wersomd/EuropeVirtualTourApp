@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             bottom: 10,
                           ),
                           overlayColor:
-                              MaterialStateProperty.all(Colors.transparent),
+                              WidgetStateProperty.all(Colors.transparent),
                           controller: tabController,
                           labelColor: theme.tabBarTheme.labelColor,
                           unselectedLabelColor:
