@@ -27,7 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
       );
       await FirebaseAuth.instance.signOut();
     } catch (e) {
-      debugPrint("Error signing out: $e");
+      debugPrint("Ошибка при входе: $e");
     }
   }
 
