@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wersomd_app/firebase_options.dart';
+import 'package:wersomd_app/models/favorites_model.dart';
 import 'package:wersomd_app/provider/theme_provider.dart';
 import 'package:wersomd_app/views/auth/sign_in.dart';
 import 'package:wersomd_app/views/auth/sign_up.dart';
@@ -17,7 +18,15 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => FavoritesModel()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -27,14 +36,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => ChangeNotifierProvider(
         create: (context) => ThemeProvider(),
         builder: (context, _) {
-          final themeProvider = Provider.of<ThemeProvider>(context);
-
           return MaterialApp(
             title: "Тур по Европе",
             debugShowCheckedModeBanner: false,
-            themeMode: themeProvider.themeMode,
-            theme: MyThemes.lightTheme,
-            darkTheme: MyThemes.darkTheme,
+            theme: Provider.of<ThemeProvider>(context).themeData,
             routes: {
               '/': (context) => const FirebaseStream(),
               '/home': (context) => MainWrapper(

@@ -35,6 +35,7 @@ class _MainWrapperState extends State<MainWrapper> {
 
     return SafeArea(
       child: Scaffold(
+        extendBodyBehindAppBar: true,
         body: IndexedStack(
           index: widget.selectedIndex,
           children: [

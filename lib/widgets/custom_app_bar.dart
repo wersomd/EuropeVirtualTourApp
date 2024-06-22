@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:wersomd_app/widgets/change_theme_button.dart';
+import 'package:provider/provider.dart';
+import 'package:wersomd_app/provider/theme_provider.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
@@ -46,17 +47,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
         actions: [
-          GestureDetector(
-            onTap: () {
-              const ChangeThemeButtonWidget();
+          IconButton(
+            onPressed: () {
+              Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
             },
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.dark_mode,
-                size: 34,
-                color: theme.appBarTheme.iconTheme!.color,
-              ),
+            icon: Consumer<ThemeProvider>(
+              builder: (context, themeProvider, child) {
+                return Icon(
+                  themeProvider.isDarkMode ? Icons.light_mode : Icons.dark_mode,
+                );
+              },
             ),
           ),
         ],
