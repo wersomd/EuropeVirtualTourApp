@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:wersomd_app/config/size_config.dart';
+
+final width = SizeConfig.screenW;
 
 ThemeData darkTheme = ThemeData(
   scaffoldBackgroundColor: Colors.grey.shade900,
@@ -22,6 +25,22 @@ ThemeData darkTheme = ThemeData(
   drawerTheme: const DrawerThemeData(
     backgroundColor: Colors.black,
   ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      minimumSize: Size(width! * .8, 60),
+      shape: const RoundedRectangleBorder(
+        side: BorderSide(
+          width: 2,
+          color: Colors.black,
+        ),
+        borderRadius: BorderRadius.all(
+          Radius.circular(10.0),
+        ),
+      ),
+    ),
+  ),
 );
 
 ThemeData lightTheme = ThemeData(
@@ -41,5 +60,18 @@ ThemeData lightTheme = ThemeData(
   indicatorColor: Colors.deepPurpleAccent,
   drawerTheme: const DrawerThemeData(
     backgroundColor: Colors.indigo,
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      shape: const RoundedRectangleBorder(
+        side: BorderSide(
+          width: 2,
+          color: Colors.black,
+        ),
+        borderRadius: BorderRadius.all(
+          Radius.circular(10.0),
+        ),
+      ),
+    ),
   ),
 );

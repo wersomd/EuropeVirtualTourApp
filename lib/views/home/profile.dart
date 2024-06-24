@@ -33,7 +33,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     final theme = Theme.of(context);
 
     return Scaffold(
@@ -109,20 +108,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     onPressed: () {
                       _user != null ? _signOut() : _signIn();
                     },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      elevation: 0,
-                      minimumSize: Size(size.width * .8, 60),
-                      shape: const RoundedRectangleBorder(
-                        side: BorderSide(
-                          width: 2,
-                          color: Colors.white,
-                        ),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(10.0),
-                        ),
-                      ),
-                    ),
+                    style: theme.elevatedButtonTheme.style,
                     child: Text(
                       _user != null ? 'Выйти' : 'Войти',
                       style: TextStyle(
