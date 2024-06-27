@@ -67,9 +67,9 @@ class _MainWrapperState extends State<MainWrapper> {
               selectedColor: Colors.indigo,
             ),
             SalomonBottomBarItem(
-              icon: const Icon(Icons.notifications_outlined),
+              icon: const Icon(Icons.chat_bubble_outline_rounded),
               title: Text(
-                "Уведомление",
+                "AI",
                 style: TextStyle(
                   color: theme.textTheme.labelSmall!.color,
                 ),

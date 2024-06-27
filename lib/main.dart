@@ -7,9 +7,9 @@ import 'package:wersomd_app/provider/theme_provider.dart';
 import 'package:wersomd_app/views/auth/sign_in.dart';
 import 'package:wersomd_app/views/auth/sign_up.dart';
 import 'package:wersomd_app/views/home/favorites.dart';
-import 'package:wersomd_app/views/home/notifications.dart';
 import 'package:wersomd_app/views/home/profile.dart';
 import 'package:wersomd_app/views/home/welcome.dart';
+import 'package:wersomd_app/views/our_ai/our_ai.dart';
 import 'package:wersomd_app/views/wrapper/main_wrapper.dart';
 import 'package:wersomd_app/services/firebase_stream.dart';
 
@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
               '/signup': (context) => const SignUpPage(),
               '/welcome': (context) => const WelcomePage(),
               '/favorite': (context) => const FavoritesPage(),
-              '/notifications': (context) => const NotificationsPage(),
+              '/notifications': (context) => const OurAiPage(),
             },
             initialRoute: '/',
           );

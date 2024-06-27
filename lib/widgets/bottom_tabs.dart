@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wersomd_app/views/home/favorites.dart';
 import 'package:wersomd_app/views/home/home.dart';
-import 'package:wersomd_app/views/home/notifications.dart';
 import 'package:wersomd_app/views/home/profile.dart';
+import 'package:wersomd_app/views/our_ai/our_ai.dart';
 
 class TabNavigationItem {
   final Widget page;
@@ -20,8 +20,8 @@ class TabNavigationItem {
           icon: const Icon(Icons.favorite_border),
         ),
         TabNavigationItem(
-          page: const NotificationsPage(),
-          icon: const Icon(Icons.notifications_outlined),
+          page: const OurAiPage(),
+          icon: const Icon(Icons.chat_bubble_outline_rounded),
         ),
         TabNavigationItem(
           page: const ProfilePage(),
